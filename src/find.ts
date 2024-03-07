@@ -18,6 +18,13 @@ const main = async () => {
     where: {
       id: 15,
     },
+    select: {
+      //selecting only the fields we need (thus, we can avoid passwords, etc.)
+      id: true,
+      title: true,
+      content: true,
+      published: false,
+    },
   });
 
   console.log({ findUnique });
