@@ -14,9 +14,9 @@ model Post {
   published    Boolean        @default(false)
   authorId     Int
   author       User           @relation(fields: [authorId], references: [id])
+  postCategory PostCategory[]
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt
-  postCategory PostCategory[]
 
   @@map("posts")
 }
@@ -24,7 +24,8 @@ model Post {
 model User {
   id       Int      @id @default(autoincrement())
   username String   @unique
-  email    String
+  email    String @unique
+  age      Int   
   role     UserRole @default(user)
   profile  Profile? // one to one relation
   post     Post[] // one to many relation
@@ -43,7 +44,7 @@ model Profile {
 
 model Category {
   id           Int            @id @default(autoincrement())
-  name         String
+  name         String        @unique
   postCategory PostCategory[]
 
   @@map("categories")

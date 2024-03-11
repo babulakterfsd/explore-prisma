@@ -6,7 +6,7 @@
   "description": "explore prisma with Babul",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/create.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.10.2",
